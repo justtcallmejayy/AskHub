@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Quora Post</h1>
+
+    <!-- Using forOf loop to display all the posts of the array -->
+        <%for (let post of posts) {%>
+            <div class="post">
+                <h2 class="username">@<%= post.username %></h2>
+                <p class="content">Content: "<%= post.content %>"</p>
+                <p>----------------------------------------------</p>
+            </div>
+            
+        <%}%>
+</body>
+</html>

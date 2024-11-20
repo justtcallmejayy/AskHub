@@ -1,0 +1,39 @@
+/* This will be general styling for whole Quora post page */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+
+    /* Remove underline from links */
+    text-decoration: none;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #F1F1F1;
+    color: #333;
+}
+
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: maroon;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.username{
+    font-style: italic;
+}
+
+.post{
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+}
