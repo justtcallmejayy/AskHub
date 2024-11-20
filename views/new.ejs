@@ -5,50 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create New Post</title>
     <style>
-      /* General body styling */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f7f7f7; /* Light gray background like Quora */
+      /* Global reset and box-sizing */
+      * {
         margin: 0;
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        box-sizing: border-box;
       }
 
+      /* General body styling */
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f7f7f7; /* Light gray background */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Space between header/form and footer */
+        align-items: center;
+        min-height: 100vh; /* Full height of the viewport */
+        padding: 20px;
+      }
+
+      /* Heading */
       h1 {
         text-align: center;
-        color: #333; /* Dark text for titles */
-        font-size: 28px;
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 20px;
       }
 
-      /* Form container */
+      /* Form container styling */
       .form-container {
         background-color: white;
-        padding: 20px;
+        padding: 30px;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 600px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .form-container:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
       }
 
       /* Input and textarea styling */
       input[type="text"],
       textarea {
         width: 100%;
-        padding: 12px;
-        margin-bottom: 16px;
-        border: 2px solid #ccc; /* Gray border for inputs */
-        border-radius: 4px;
-        box-sizing: border-box;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 2px solid #ccc;
+        border-radius: 6px;
         font-size: 16px;
-        background-color: #fafafa; /* Slightly off-white for input fields */
+        background-color: #fafafa;
+        transition: border-color 0.3s ease;
       }
 
       input[type="text"]:focus,
       textarea:focus {
-        border-color: #e30000; /* Red focus border to match Quora's theme */
+        border-color: #e30000; /* Quora red */
         outline: none;
       }
 
@@ -57,38 +71,154 @@
         background-color: #e30000; /* Quora's red */
         color: white;
         border: none;
-        padding: 14px 20px;
-        text-align: center;
-        font-size: 16px;
-        border-radius: 4px;
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 6px;
         cursor: pointer;
         width: 100%;
+        transition: background-color 0.3s ease;
       }
 
       button:hover {
         background-color: #cc0000; /* Slightly darker red on hover */
       }
 
+      button:focus {
+  outline: 2px solid #e30000; /* Red outline on focus */
+  outline-offset: 2px;
+}
+
+
       /* Textarea resizing */
       textarea {
         resize: vertical;
-        height: 150px;
-      }
-
-      /* Space between input fields */
-      br {
-        margin-bottom: 10px;
+        height: 180px;
       }
 
       /* Placeholder text styling */
       ::placeholder {
-        color: #999; /* Light gray placeholder text */
+        color: #999;
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: #f7f7f7; /* Same light background as the page */
+        padding: 20px 0;
+        margin-top: 40px;
+        text-align: center;
+        border-top: 1px solid #ddd; /* Light border to separate footer from content */
+        width: 100%;
+      }
+
+      .footer-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-links {
+        margin-bottom: 15px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #e30000; /* Quora red on hover */
+      }
+
+      .footer-social {
+        margin-bottom: 20px;
+      }
+
+      .social-icon {
+        margin: 0 10px;
+      }
+
+      .social-icon img {
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-icon img:hover {
+        opacity: 0.7; /* Subtle hover effect for social icons */
+      }
+
+      .footer-text {
+        font-size: 12px;
+        color: #888;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icon {
+    margin: 10px;
+  }
+}
+
+input[type="text"],
+textarea {
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #e30000;
+  background-color: #fff; /* Slight change in background on focus */
+}
+
+
+      /* Code for loader */
+      #loader {
+  text-align: center;
+  font-size: 20px;
+  color: #e30000;
+  padding: 20px;
+}
+
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .form-container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .footer-container {
+          padding: 0 15px;
+        }
+
+        .footer-links a {
+          font-size: 12px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="form-container">
       <h1>Create New Post</h1>
+
+
 
       <form action="/posts" method="POST">
         <input
@@ -99,8 +229,6 @@
           required
         />
 
-        <br />
-
         <textarea
           id="content"
           name="content"
@@ -108,10 +236,64 @@
           required
         ></textarea>
 
-        <br />
+        <!-- Add a loader element inside the form -->
+<div id="loader" style="display:none;">Loading...</div>
+
 
         <button type="submit">Submit</button>
       </form>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="/about">About</a>
+          <a href="/help">Help</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://github.com/justtcallmejayy"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+              alt="Github"
+            />
+          </a>
+          <a
+            href="https://x.com/JayyWebDevX"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"
+              alt="Twitter"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jaychoksi18/"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+        <p class="footer-text">© 2024 Quora Clone. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', function() {
+  document.getElementById('loader').style.display = 'block';
+});
+
+    </script>
   </body>
 </html>

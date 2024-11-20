@@ -1,28 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Posts</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
     <div class="container">
-        <h1>Quora Posts</h1>
+      <h1>Quora Posts</h1>
 
-        <!-- Loop through posts -->
-        <% for (let post of posts) { %>
-            <div class="post">
-                <h2 class="username">@<%= post.username %></h2>
-                <p class="content"><%= post.content %></p>
-                <p class="separator">----------------------------------------------</p>
-            </div>
-        <% } %>
+      <!-- Loop through posts -->
+      <% for (let post of posts) { %>
+      <div class="post">
+        <h2 class="username">@<%= post.username %></h2>
+        <p class="content"><%= post.content %></p>
+        <!-- Code for adding id after the content of the post so that anyone can view this post in detail. -->
+<a href="http://localhost:8080/posts/<%= post.id %>" class="view-details">View in detail</a>
 
-        <!-- Create New Post Button -->
-        <div class="new-post-link">
-            <a href="http://localhost:8080/posts/new" class="button">Create New Post</a>
-        </div>
+        <p class="separator">----------------------------------------------</p>
+      </div>
+      <% } %>
+
+      <!-- Create New Post Button -->
+      <div class="new-post-link">
+        <a href="http://localhost:8080/posts/new" class="button"
+          >Create New Post</a
+        >
+      </div>
     </div>
-</body>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="/about">About</a>
+          <a href="/help">Help</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://github.com/justtcallmejayy"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+              alt="Github"
+            />
+          </a>
+          <a
+            href="https://x.com/JayyWebDevX"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"
+              alt="Twitter"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jaychoksi18/"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+        <p class="footer-text">© 2024 Quora Clone. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
