@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Quora Post</h1>
+    <div class="container">
+        <h1>Quora Posts</h1>
 
-    <!-- Using forOf loop to display all the posts of the array -->
-        <%for (let post of posts) {%>
+        <!-- Loop through posts -->
+        <% for (let post of posts) { %>
             <div class="post">
                 <h2 class="username">@<%= post.username %></h2>
-                <p class="content">Content: "<%= post.content %>"</p>
-                <p>----------------------------------------------</p>
+                <p class="content"><%= post.content %></p>
+                <p class="separator">----------------------------------------------</p>
             </div>
-            
-        <%}%>
+        <% } %>
+
+        <!-- Create New Post Button -->
+        <div class="new-post-link">
+            <a href="http://localhost:8080/posts/new" class="button">Create New Post</a>
+        </div>
+    </div>
 </body>
 </html>

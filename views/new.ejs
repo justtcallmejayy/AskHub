@@ -1,107 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create New Post</title>
     <style>
-        /* General body styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7; /* Light gray background like Quora */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+      /* General body styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7; /* Light gray background like Quora */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-        h1 {
-            text-align: center;
-            color: #333; /* Dark text for titles */
-            font-size: 28px;
-        }
+      h1 {
+        text-align: center;
+        color: #333; /* Dark text for titles */
+        font-size: 28px;
+      }
 
-        /* Form container */
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
+      /* Form container */
+      .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+      }
 
-        /* Input and textarea styling */
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 16px;
-            border: 2px solid #ccc; /* Gray border for inputs */
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            background-color: #fafafa; /* Slightly off-white for input fields */
-        }
+      /* Input and textarea styling */
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 16px;
+        border: 2px solid #ccc; /* Gray border for inputs */
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        background-color: #fafafa; /* Slightly off-white for input fields */
+      }
 
-        input[type="text"]:focus, textarea:focus {
-            border-color: #e30000; /* Red focus border to match Quora's theme */
-            outline: none;
-        }
+      input[type="text"]:focus,
+      textarea:focus {
+        border-color: #e30000; /* Red focus border to match Quora's theme */
+        outline: none;
+      }
 
-        /* Submit button styling */
-        button {
-            background-color: #e30000; /* Quora's red */
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
+      /* Submit button styling */
+      button {
+        background-color: #e30000; /* Quora's red */
+        color: white;
+        border: none;
+        padding: 14px 20px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
 
-        button:hover {
-            background-color: #cc0000; /* Slightly darker red on hover */
-        }
+      button:hover {
+        background-color: #cc0000; /* Slightly darker red on hover */
+      }
 
-        /* Textarea resizing */
-        textarea {
-            resize: vertical;
-            height: 150px;
-        }
+      /* Textarea resizing */
+      textarea {
+        resize: vertical;
+        height: 150px;
+      }
 
-        /* Space between input fields */
-        br {
-            margin-bottom: 10px;
-        }
+      /* Space between input fields */
+      br {
+        margin-bottom: 10px;
+      }
 
-        /* Placeholder text styling */
-        ::placeholder {
-            color: #999; /* Light gray placeholder text */
-        }
-
+      /* Placeholder text styling */
+      ::placeholder {
+        color: #999; /* Light gray placeholder text */
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="form-container">
-        <h1>Create New Post</h1>
+      <h1>Create New Post</h1>
 
-        <form action="/posts" method="POST">
-            <input type="text" name="username" id="username" placeholder="Enter your username" required>
+      <form action="/posts" method="POST">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter your username"
+          required
+        />
 
-            <br>
+        <br />
 
-            <textarea id="content" name="content" placeholder="Write your post" required></textarea>
+        <textarea
+          id="content"
+          name="content"
+          placeholder="Write your post"
+          required
+        ></textarea>
 
-            <br>
+        <br />
 
-            <button type="submit">Submit</button>
-        </form>
+        <button type="submit">Submit</button>
+      </form>
     </div>
-
-</body>
+  </body>
 </html>

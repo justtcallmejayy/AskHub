@@ -72,7 +72,13 @@ let {username, content} = req.body;
     });
     // After adding new post, we are redirecting the user to our main page
    res.redirect("/posts");
-})
+});
+
+// Now adding a new route 
+app.get("/posts/:id",(req, res)=>{
+    let {id}= res.params
+});
+
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port ${port}`);
