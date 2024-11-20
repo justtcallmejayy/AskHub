@@ -62,7 +62,7 @@ app.get("/posts/new",(req, res)=>{
 // This will be the code for a POST request create by ournew postpage , it will take res and return the request body
 
 app.post("/posts",(req, res)=>{
-    res.send("POST request working in Progress");
+    // res.send("POST request working in Progress");
 let {username, content} = req.body;
     // Now we are adding a new post to our posts array
     posts.push({
@@ -71,7 +71,7 @@ let {username, content} = req.body;
         content
     });
     // After adding new post, we are redirecting the user to our main page
-   // res.redirect("/posts");
+   res.redirect("/posts");
 })
 
 app.listen(port, ()=>{
