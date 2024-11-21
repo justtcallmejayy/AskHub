@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const port = 8080;
 const path = require("path"); //THIS LINE IS CRUEIL AS IT WILL NOT ALLOW WORKING FURTHER
+const { v4: uuidv4 } = require("uuid"); //THIS LINE IS IMP FOR USING UUID IN OUR CODE
 
 // Using Middleware for Encoding Json Data
 app.use(express.urlencoded({ extended: true }));
@@ -20,27 +21,27 @@ app.use(express.static(path.join(__dirname, "public")));
 // Below is our database array with username and content so that later we can use this to update and delete the post
 let posts = [
   {
-    id: "1a",
+    id: uuidv4(),
     username: "Jay",
     content: "This is my first post on Quora",
   },
   {
-    id: "2b",
+    id: uuidv4(),
     username: "Aman",
     content: "This is my second post on Quora",
   },
   {
-    id: "3c",
+    id: uuidv4(),
     username: "Shardha",
     content: "This is my third post on Quora",
   },
   {
-    id: "4d",
+    id: uuidv4(),
     username: "Adam",
     content: "This is my fourth post on Quora",
   },
   {
-    id: "5e",
+    id: uuidv4(),
     username: "Eve",
     content: "This is my fifth post on Quora",
   },
@@ -62,11 +63,14 @@ app.get("/posts/new", (req, res) => {
 // This will be the code for a POST request create by ournew postpage , it will take res and return the request body
 
 app.post("/posts", (req, res) => {
+  //Now i will also add the ID, and passing it along with the username & content
+
   // res.send("POST request working in Progress");
   let { username, content } = req.body;
+  let id = uuidv4();
   // Now we are adding a new post to our posts array
   posts.push({
-    id: posts.length + 1, //this is a basic way of creating id with incement
+    id, //posts.length + 1, //this is a basic way of creating id with incement
     username,
     content,
   });
@@ -80,7 +84,7 @@ app.get("/posts/:id", (req, res) => {
   // Here we are finding the post in our posts array using find method
   let post = posts.find((p) => id === p.id);
   res.render("show.ejs", { post });
-  res.send("Request is working");
+  // res.send("Request is working");
 });
 
 app.listen(port, () => {
