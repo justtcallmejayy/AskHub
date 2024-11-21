@@ -81,10 +81,32 @@ app.post("/posts", (req, res) => {
 // Now adding a new route
 app.get("/posts/:id", (req, res) => {
   let { id } = req.params;
+  // res.send("Request is working");
   // Here we are finding the post in our posts array using find method
   let post = posts.find((p) => id === p.id);
   res.render("show.ejs", { post });
   // res.send("Request is working");
+});
+
+// Adding PATCH function to the add a specific path that will be used to edit teh post further.
+app.patch("/posts/:id", (req, res)=>{
+  let { id } = req.params;
+  let newContent = req.body.content;
+    let post = posts.find((p) => id === p.id); //by this line of code i can know what id i need or i amworking on, now i will simply just add / append the new content ie the updated content to my content
+    post.content = newContent;
+    console.log(post);
+  console.log(newContent);
+  console.log(id);
+
+  res.send("PATCH request working");
+});
+
+// Creatinga new route for EDIT
+app.get("/posts/:id/edit", (req, res)=>{
+  // res.send("Request is working");
+  let { id } = req.params;
+  let post = posts.find((p) => id === p.id);
+  res.render("edit.ejs", { post });
 });
 
 app.listen(port, () => {
