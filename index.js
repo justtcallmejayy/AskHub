@@ -106,7 +106,7 @@ app.get("/posts/:id/edit", (req, res)=>{
   // res.send("Request is working");
   let { id } = req.params;
   let post = posts.find((p) => id === p.id);
-  res.render("edit.ejs", { post });
+  res.render("edit.ejs", {post});
 });
 
 app.listen(port, () => {

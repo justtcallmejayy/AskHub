@@ -4,19 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Post</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        
+    </style>
   </head>
   <body>
     <header>
       <h1>Edit Post</h1>
 
       <h2 class="username">@<%= post.username %></h2>
-      <h3 class="id">Post ID:<%= post.id %></h3>
+      <h3 class="id">Post ID: <%= post.id %></h3>
     </header>
-    <form action="" method="GET">
-        <textarea name="" id=""></textarea>
-        <button type="submit">Edit Post</button>
+
+    <!-- The form uses a PUT method to update the post -->
+    <form action="/posts/<%= post.id %>" method="POST">
+      <!-- Hidden input to emulate PUT/PATCH method -->
+      <input type="hidden" name="_method" value="PUT" />
+
+      <textarea
+        name="content"
+        id="content"
+        placeholder="Edit your post here"
+        required
+      >
+<%= post.content %></textarea
+      >
+
+      <div class="form-actions">
+        <button type="submit">Update Post</button>
         <a href="/posts/<%= post.id %>">Cancel</a>
-        
+      </div>
     </form>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="/about">About</a>
+          <a href="/help">Help</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://github.com/justtcallmejayy"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+              alt="Github"
+            />
+          </a>
+          <a
+            href="https://x.com/JayyWebDevX"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"
+              alt="Twitter"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jaychoksi18/"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+        <p class="footer-text">© 2024 Quora Clone. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
