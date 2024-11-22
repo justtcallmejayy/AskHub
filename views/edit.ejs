@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post</title>
+  </head>
+  <body>
+    <header>
+      <h1>Edit Post</h1>
+
+      <h2 class="username">@<%= post.username %></h2>
+      <h3 class="id">Post ID:<%= post.id %></h3>
+    </header>
+    <form action="" method="GET">
+        <textarea name="" id=""></textarea>
+        <button type="submit">Edit Post</button>
+        <a href="/posts/<%= post.id %>">Cancel</a>
+        
+    </form>
+  </body>
+</html>
