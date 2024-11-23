@@ -2,7 +2,7 @@
 
 ### A Full-Stack Web Application built with Express.js, EJS, and more.
 
-![Profile views](https://komarev.com/ghpvc/?username=justtcallmejayy&label=Profile%20views&color=0e75b6&style=flat)
+![Project views](https://komarev.com/ghpvc/?username=justtcallmejayy&label=Profile%20views&color=0e75b6&style=flat)
 
 - 🌱 Currently learning **Full-stack Development & Security**
 - 📫 Reach me at **jayy.choksi@gmail.com**
