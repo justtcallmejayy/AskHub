@@ -10,6 +10,9 @@ const methodOverride = require("method-override");
 // Using Middleware for Encoding Json Data
 app.use(express.urlencoded({ extended: true }));
 
+// Using _method for app.use to set the method for overriding. THIS MEANS TO OVERRIDE THE POST HAVING _DELETE
+app.use(methodOverride("_method"));
+
 // I am setting a viewEngine to EJS
 app.set("view engine", "ejs");
 
@@ -90,24 +93,25 @@ app.get("/posts/:id", (req, res) => {
 });
 
 // Adding PATCH function to the add a specific path that will be used to edit teh post further.
-app.patch("/posts/:id", (req, res)=>{
+app.patch("/posts/:id", (req, res) => {
   let { id } = req.params;
   let newContent = req.body.content;
-    let post = posts.find((p) => id === p.id); //by this line of code i can know what id i need or i amworking on, now i will simply just add / append the new content ie the updated content to my content
-    post.content = newContent;
-    console.log(post);
+  let post = posts.find((p) => id === p.id); //by this line of code i can know what id i need or i amworking on, now i will simply just add / append the new content ie the updated content to my content
+  post.content = newContent;
+  console.log(post);
   console.log(newContent);
   console.log(id);
 
-  res.send("PATCH request working");
+  // After adding new post, we are redirecting the user to our main page
+  res.redirect("/posts");
 });
 
-// Creatinga new route for EDIT
-app.get("/posts/:id/edit", (req, res)=>{
+// Creatinga new route for EDIT using my DELETE
+app.get("/posts/:id/edit", (req, res) => {
   // res.send("Request is working");
   let { id } = req.params;
   let post = posts.find((p) => id === p.id);
-  res.render("edit.ejs", {post});
+  res.render("edit.ejs", { post });
 });
 
 app.listen(port, () => {
