@@ -30,11 +30,9 @@
           class="view-details"
           >Edit</a
         >
-        <a
-          href="http://localhost:8080/posts/<%= post.id %>/edit"
-          class="view-details"
-          >Delete</a
-        >
+        <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
+          <button class="view-details">Delete</button>
+        </form>
 
         <p class="separator">----------------------------------------------</p>
       </div>
