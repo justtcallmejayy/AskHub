@@ -33,7 +33,7 @@ a:hover {
 /* Link for google fonts */
 
 body {
-  font-family: 'Roboto', sans-serif; /* Using Roboto for better readability */
+  font-family: "Roboto", sans-serif; /* Using Roboto for better readability */
 }
 
 h1 {
@@ -43,7 +43,6 @@ h1 {
 button {
   font-weight: 600; /* Make button text bolder */
 }
-
 
 button {
   cursor: pointer;
@@ -56,7 +55,6 @@ button:focus {
   outline: 2px solid #e30000; /* Red outline on focus */
   outline-offset: 2px;
 }
-
 
 /* Container Styling */
 .container {
@@ -314,7 +312,6 @@ a.view-details:hover {
   background-color: #e30000; /* Quora's red background */
 }
 
-
 /* Below is the code for Media query for css FOOTER */
 @media (max-width: 768px) {
   .footer-links {
@@ -333,7 +330,6 @@ a.view-details:hover {
   }
 }
 
-
 /* Below is the code for Media query for css MOBILE */
 
 @media (max-width: 768px) {
@@ -349,7 +345,6 @@ a.view-details:hover {
     padding: 15px;
   }
 }
-
 
 /* Below is the style sheet for EDIT.JS */
 
@@ -463,12 +458,11 @@ body {
 .darkmode {
   --base-color: #070b1d; /* Dark background */
   --base-variant: #101425; /* Darker variant */
-  --text-color: #FDF0D5; /* Light cream for text */
+  --text-color: #fdf0d5; /* Light cream for text */
   --secondary-text: #a4a5b8; /* Soft gray for secondary text */
   --primary-color: #780000; /* Deep red for contrast */
-  --accent-color: #C1121F; /* Bright red for accents */
+  --accent-color: #c1121f; /* Bright red for accents */
 }
-
 
 /* Global Styles */
 * {
@@ -478,7 +472,7 @@ body {
 }
 
 html {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -488,10 +482,16 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   padding: 20px;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   color: var(--text-color);
 }
@@ -603,7 +603,8 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
   width: 100%;
   padding: 14px;
   border: 1px solid #ccc;
@@ -615,7 +616,8 @@ input[type="text"], textarea {
   transition: border-color var(--transition-speed);
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus,
+textarea:focus {
   border-color: var(--primary-color);
   outline: none;
 }
@@ -646,7 +648,9 @@ footer {
 
 /* Responsive Layout */
 @media (max-width: 768px) {
-  .container, .post, .form-container {
+  .container,
+  .post,
+  .form-container {
     padding: 15px;
   }
 
