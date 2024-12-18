@@ -28,11 +28,15 @@ let posts = [
     id: uuidv4(),
     username: "Jay",
     content: "This is my first post on Quora",
+    upvotes: 0,
+    downvotes: 0,
   },
   {
     id: uuidv4(),
     username: "Aman",
     content: "This is my second post on Quora",
+    upvotes: 0,
+    downvotes: 0,
   },
   {
     id: uuidv4(),
@@ -117,6 +121,27 @@ app.get("/posts/:id/edit", (req, res) => {
 app.delete("/posts/:id", (req, res) => {
   let { id } = req.params;
   posts = posts.filter((p) => id !== p.id);
+  res.redirect("/posts");
+});
+
+// Adding a new route for Upvotes
+// Route for upvoting a post
+app.post("/posts/:id/upvote", (req, res) => {
+  const { id } = req.params;
+  const post = posts.find((p) => p.id === id);
+  if (post) {
+    post.upvotes += 1;
+  }
+  res.redirect("/posts");
+});
+
+// Route for downvoting a post
+app.post("/posts/:id/downvote", (req, res) => {
+  const { id } = req.params;
+  const post = posts.find((p) => p.id === id);
+  if (post) {
+    post.downvotes += 1;
+  }
   res.redirect("/posts");
 });
 
