@@ -484,6 +484,8 @@ body {
   padding: 20px;
   transition: background-color var(--transition-speed),
     color var(--transition-speed);
+      transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 h1,
