@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Posts</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- Global Styles -->
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -54,6 +56,15 @@
           class="view-details"
           >Edit</a
         >
+        <div class="votes">
+          <form action="/posts/<%= post.id %>/upvote" method="POST">
+            <button type="submit">👍 <%= post.upvotes %></button>
+          </form>
+          <form action="/posts/<%= post.id %>/downvote" method="POST">
+            <button type="submit">👎 <%= post.downvotes %></button>
+          </form>
+        </div>
+
         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
           <button class="view-details" aria-label="Delete Post">Delete</button>
         </form>
