@@ -57,16 +57,19 @@
           >Edit</a
         >
         <div class="votes">
+          <!-- Upvote Form -->
           <form action="/posts/<%= post.id %>/upvote" method="POST">
             <button type="submit">👍 <%= post.upvotes %></button>
           </form>
+          <!-- Downvote Form -->
           <form action="/posts/<%= post.id %>/downvote" method="POST">
             <button type="submit">👎 <%= post.downvotes %></button>
           </form>
         </div>
 
+        <!-- Delete Form -->
         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
-          <button class="view-details" aria-label="Delete Post">Delete</button>
+          <button class="delete-btn" aria-label="Delete Post">Delete</button>
         </form>
 
         <p class="separator">----------------------------------------------</p>
