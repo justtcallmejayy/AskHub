@@ -1,0 +1,82 @@
+/* ------------------------------------------------------------------
+  Global Reset & Typography (truncated for brevity)
+---------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+/* ------------------------------------------------------------------
+  1. Form Actions (Buttons & Cancel Link)
+---------------------------------------------------------------------*/
+.form-actions {
+  display: inline-flex; /* Shrinks width to content */
+  gap: 10px; /* Space between button & link */
+  margin-top: 20px; /* Some space above */
+  /* Optionally center the form actions container itself:
+     margin-left: auto;
+     margin-right: auto;
+  */
+}
+
+/* Update button */
+.form-actions button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--primary-color); /* e.g., #e30000 */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions button[type="submit"]:hover {
+  background-color: var(--accent-color); /* e.g., #cc0000 */
+}
+
+/* Cancel link styled as secondary button */
+.cancel-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #ddd; /* Light gray or any neutral color */
+  color: #333; /* Dark text for contrast */
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb; /* Slightly darker on hover */
+}
+
+/* ------------------------------------------------------------------
+  2. OPTIONAL: Centering the Entire Form
+---------------------------------------------------------------------*/
+/*
+   If you want the entire form (including .form-actions) to be centered
+   and not take full width, wrap it in a container with a fixed width
+   or use inline-block. For example:
+*/
+.edit-form {
+  width: fit-content; /* shrink to fit content */
+  margin: 0 auto; /* center horizontally */
+}
