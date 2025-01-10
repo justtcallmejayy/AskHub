@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create New Post</title>
-  <link rel="stylesheet" href="/style.css"> <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/new.css">   <!-- New-Specific Styles -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/css/new.css" />
+    <!-- New-Specific Styles -->
   </head>
   <body>
     <div class="form-container">
@@ -43,7 +45,6 @@
           pattern="[a-zA-Z0-9_]+"
           required
         />
-
         <textarea
           id="content"
           name="content"
@@ -51,7 +52,6 @@
           required
         ></textarea>
 
-        <!-- Add a loader element inside the form -->
         <div id="loader" style="display: none">Loading...</div>
 
         <button type="submit">Submit</button>
