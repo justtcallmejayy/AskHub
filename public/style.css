@@ -1,470 +1,28 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  color: #444;
-}
-
-a {
-  color: #e30000; /* Quora red */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Link for google fonts */
-
-body {
-  font-family: "Roboto", sans-serif; /* Using Roboto for better readability */
-}
-
-h1 {
-  font-weight: 500;
-}
-
-button {
-  font-weight: 600; /* Make button text bolder */
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-}
-
-button:focus {
-  outline: 2px solid #e30000; /* Red outline on focus */
-  outline-offset: 2px;
-}
-
-/* Container Styling */
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Main Header */
-header {
-  background-color: #ffffff;
-  padding: 10px 0;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-}
-
-header h1 {
-  font-size: 30px;
-  color: #444;
-  text-align: center;
-}
-
-/* Post Listing Page Styles */
-.post {
-  background-color: #ffffff;
-  padding: 20px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.post h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #e30000;
-}
-
-.post .username {
-  font-size: 16px;
-  font-weight: 500;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.post .content {
-  font-size: 18px;
-  color: #555;
-}
-
-.post .actions {
-  margin-top: 15px;
-  text-align: right;
-}
-
-.post .actions button {
-  background-color: #e30000;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.post .actions button:hover {
-  background-color: #cc0000;
-}
-
-/* Form for Creating New Post */
-.form-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 20px auto;
-}
-
-.form-container h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #444;
-  text-align: center;
-}
-
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #f7f7f7;
-  font-size: 16px;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-textarea:focus {
-  border-color: #e30000;
-  outline: none;
-}
-
-button[type="submit"] {
-  background-color: #e30000;
-  color: white;
-  font-size: 18px;
-  padding: 12px 24px;
-  border-radius: 20px;
-  width: 100%;
-  border: none;
-  transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #cc0000;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-/* Post Detail Page */
-.post-detail {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.post-detail h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #e30000;
-}
-
-.post-detail .username {
-  font-size: 18px;
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 15px;
-}
-
-.post-detail .content {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.separator {
-  border-top: 1px solid #ddd;
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.separator p {
-  font-size: 14px;
-  color: #aaa;
-  text-align: center;
-}
-
-/* Links to New Post */
-.new-post-link {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.new-post-link a {
-  background-color: #e30000;
-  color: white;
-  padding: 12px 24px;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 20px;
-}
-
-.new-post-link a:hover {
-  background-color: #cc0000;
-}
-
-/* Footer Styling */
-footer {
-  background-color: #f7f7f7; /* Same light background as the page */
-  padding: 20px 0;
-  margin-top: 40px;
-  text-align: center;
-  border-top: 1px solid #ddd; /* Light border to separate footer from content */
-}
-
-.footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-links {
-  margin-bottom: 15px;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #e30000; /* Quora red on hover */
-}
-
-.footer-social {
-  margin-bottom: 20px;
-}
-
-.social-icon {
-  margin: 0 10px;
-}
-
-.social-icon img {
-  width: 24px;
-  height: 24px;
-  transition: opacity 0.3s ease;
-}
-
-.social-icon img:hover {
-  opacity: 0.7; /* Subtle hover effect for social icons */
-}
-
-.footer-text {
-  font-size: 12px;
-  color: #888;
-  margin-top: 10px;
-}
-
-/* Anchor tag css */
-/* Minimal style for the "View in detail" link */
-a.view-details {
-  color: #e30000; /* Quora-like blue color */
-  text-decoration: none; /* Remove the underline */
-  padding: 5px 10px; /* Add some padding around the text */
-  border-radius: 4px; /* Slightly rounded corners */
-  transition: color 0.3s, background-color 0.3s; /* Smooth transition */
-}
-
-/* Hover effect */
-a.view-details:hover {
-  color: white; /* Text turns white */
-  background-color: #e30000; /* Quora's red background */
-}
-
-/* Below is the code for Media query for css FOOTER */
-@media (max-width: 768px) {
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-social {
-    display: flex;
-    justify-content: center;
-  }
-
-  .social-icon {
-    margin: 10px;
-  }
-}
-
-/* Below is the code for Media query for css MOBILE */
-
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .post {
-    padding: 15px;
-  }
-
-  .form-container {
-    padding: 15px;
-  }
-}
-
-/* Below is the style sheet for EDIT.JS */
-
-/* General page styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  text-align: center;
-  background-color: #2a2a2a;
-  color: white;
-  padding: 20px;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 36px;
-}
-
-.username {
-  font-size: 18px;
-  margin: 5px 0;
-}
-
-.post-id {
-  font-size: 14px;
-  color: #bbb;
-}
-
-/* Main container */
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  padding: 20px;
-}
-
-.edit-form {
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-}
-
-.content-input {
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: vertical;
-  margin-bottom: 20px;
-  outline: none;
-}
-
-.content-input:focus {
-  border-color: #007bff;
-}
-
-/* Buttons and form actions */
-.submit-btn {
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-  background-color: #0056b3;
-}
-
-.cancel-btn {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #007bff;
-  font-size: 16px;
-}
-
-.cancel-btn:hover {
-  color: #0056b3;
-}
-
-.form-actions {
-  text-align: center;
-}
-
-/* Root Variables for Light and Dark Mode */
+/* ------------------------------------------------------------------
+  1. Root Variables and Dark Mode
+---------------------------------------------------------------------*/
 :root {
-  --base-color: #f7f7f7; /* Light gray */
-  --base-variant: #ffffff; /* White for containers */
-  --text-color: #333; /* Dark text for readability */
-  --secondary-text: #888; /* Lighter gray for secondary text */
-  --primary-color: #e30000; /* Quora red */
-  --accent-color: #cc0000; /* Darker red for accents */
+  --base-color: #f7f7f7; /* Light gray (page background)    */
+  --base-variant: #ffffff; /* White for containers           */
+  --text-color: #333; /* Dark text for readability      */
+  --secondary-text: #888; /* Lighter gray for secondary text*/
+  --primary-color: #e30000; /* Quora red                      */
+  --accent-color: #cc0000; /* Darker red for hover accents   */
   --transition-speed: 0.3s;
 }
 
 .darkmode {
-  --base-color: #070b1d; /* Dark background */
-  --base-variant: #101425; /* Darker variant */
-  --text-color: #fdf0d5; /* Light cream for text */
-  --secondary-text: #a4a5b8; /* Soft gray for secondary text */
-  --primary-color: #780000; /* Deep red for contrast */
-  --accent-color: #c1121f; /* Bright red for accents */
+  --base-color: #070b1d; /* Dark background                */
+  --base-variant: #101425; /* Darker variant                 */
+  --text-color: #fdf0d5; /* Light cream for text           */
+  --secondary-text: #a4a5b8; /* Soft gray for secondary text   */
+  --primary-color: #780000; /* Deep red for contrast          */
+  --accent-color: #c1121f; /* Bright red for hover accents   */
 }
 
-/* Global Styles */
+/* ------------------------------------------------------------------
+  2. Global Reset & Typography
+---------------------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
@@ -484,8 +42,6 @@ body {
   padding: 20px;
   transition: background-color var(--transition-speed),
     color var(--transition-speed);
-      transition: background-color 0.3s ease, color 0.3s ease;
-
 }
 
 h1,
@@ -523,7 +79,14 @@ button:hover {
   background-color: var(--accent-color);
 }
 
-/* Theming Toggle Button */
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
+  3. Theming Toggle Button
+---------------------------------------------------------------------*/
 #theme-switch {
   height: 50px;
   width: 50px;
@@ -556,8 +119,11 @@ button:hover {
   display: block;
 }
 
-/* Container Styling */
+/* ------------------------------------------------------------------
+  4. Container and Page Layout
+---------------------------------------------------------------------*/
 .container {
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 20px;
@@ -566,12 +132,14 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Post Styles */
+/* ------------------------------------------------------------------
+  5. Post Listing Styles
+---------------------------------------------------------------------*/
 .post {
   background-color: var(--base-variant);
   padding: 20px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* You could also consider using var(--secondary-text) at partial opacity */
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -586,23 +154,84 @@ button:hover {
   font-size: 16px;
   color: var(--secondary-text);
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .post .content {
   font-size: 18px;
   color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.post .actions {
+  margin-top: 15px;
+  text-align: right;
 }
 
 .post .actions button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
   border-radius: 20px;
+  font-size: 14px;
+  transition: background-color var(--transition-speed);
 }
 
-/* Form Styles */
-.form-container {
+/* For the "separator" line within posts */
+.separator {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+  color: var(--secondary-text);
+}
+
+/* Minimal style for the "View in detail" or "Edit" links */
+a.view-details {
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color var(--transition-speed),
+    background-color var(--transition-speed);
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+a.view-details:hover {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+/* ------------------------------------------------------------------
+6.
+  Form
+  Container
+  (Create/Edit Post)
+  ---------------------------------------------------------------------*/
+  .form-container {
   padding: 20px;
   border-radius: 8px;
   background-color: var(--base-variant);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Option A: Fixed smaller max-width */
+  max-width: 400px;
+
+  /* Option B (alternative): 
+     For maximum responsiveness, you could do:
+     width: min(400px, 90%);
+     (Use either A or B, not both) */
+
+  margin: 20px auto; /* centers the container */
+  text-align: left; /* keeps textfields left-aligned (change to center if desired) */
+}
+
+.form-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: center; /* title centered even if the form is left-aligned */
 }
 
 input[type="text"],
@@ -627,9 +256,53 @@ textarea:focus {
 button[type="submit"] {
   width: 100%;
   font-size: 18px;
+  border-radius: 20px;
+  padding: 12px; /* Give a bit more vertical space if desired */
 }
 
-/* Footer */
+/* Textarea resizing */
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* ------------------------------------------------------------------
+  7. Buttons, Edit Form, and Additional Utilities
+---------------------------------------------------------------------*/
+.submit-btn {
+  padding: 10px;
+  background-color: #007bff; /* Overwrites var(--primary-color)? Adjust if needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.cancel-btn {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+}
+
+.cancel-btn:hover {
+  color: #0056b3;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------
+  8. Footer Styles
+---------------------------------------------------------------------*/
 footer {
   padding: 20px;
   margin-top: 40px;
@@ -638,17 +311,55 @@ footer {
   border-top: 1px solid var(--secondary-text);
 }
 
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
 .footer-links a {
+  text-decoration: none;
   color: var(--text-color);
-  margin: 0 10px;
   font-size: 14px;
+  margin: 0 10px;
+  transition: color var(--transition-speed);
 }
 
 .footer-links a:hover {
   color: var(--primary-color);
 }
 
-/* Responsive Layout */
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  margin: 0 10px;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  transition: opacity var(--transition-speed);
+}
+
+.social-icon img:hover {
+  opacity: 0.7; /* Subtle hover effect for social icons */
+}
+
+.footer-text {
+  font-size: 12px;
+  color: var(--secondary-text);
+  margin-top: 10px;
+}
+
+/* ------------------------------------------------------------------
+  9. Responsive Layouts
+---------------------------------------------------------------------*/
 @media (max-width: 768px) {
   .container,
   .post,
@@ -659,4 +370,66 @@ footer {
   footer {
     padding: 15px;
   }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icon {
+    margin: 10px;
+  }
+}
+
+/* code for vote */
+
+/* Container for upvote/downvote buttons */
+.votes {
+  display: flex; /* Align forms horizontally */
+  gap: 8px; /* Spacing between buttons */
+  align-items: center;
+  margin: 10px 0; /* Some vertical spacing */
+}
+
+.votes form {
+  margin: 0; /* Remove default margin on forms */
+}
+
+/* Style for upvote/downvote buttons */
+.votes button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--primary-color); /* e.g., #e30000 */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.votes button:hover {
+  background-color: var(--accent-color); /* e.g., #cc0000 */
+}
+
+/* Delete button style */
+.delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Slight spacing above if needed */
+}
+
+.delete-btn:hover {
+  background-color: var(--accent-color);
 }
