@@ -11,7 +11,7 @@
 
 ## 🚀 Project Description
 
-This **Quora Clone** demonstrates how to build a simple question-and-answer style platform using **Node.js** and **Express.js** for the backend, with **EJS** templating for the frontend. You can create posts, view them in a list, see each post’s details, and interact through basic actions like upvotes/downvotes.
+This **Quora Clone** demonstrates how to build a simple question-and-answer style platform using **Node.js** and **Express.js** for the backend, with **EJS** templating for the front end. You can create posts, view them in a list, see each post’s details, and interact through basic actions like upvotes/downvotes.
 
 ### Key Highlights
 
@@ -26,7 +26,7 @@ This **Quora Clone** demonstrates how to build a simple question-and-answer styl
 
 - **Backend**: Node.js, Express.js  
 - **Frontend**: EJS, HTML, CSS  
-- **Database**: (Placeholder) In-memory array or plug in MongoDB/SQL  
+- **Database**: (Placeholder) In-memory array or plug-in MongoDB/SQL  
 - **Tools & Libraries**:  
   - EJS templating  
   - RESTful APIs  
@@ -41,6 +41,24 @@ This **Quora Clone** demonstrates how to build a simple question-and-answer styl
 3. **View Post Details**: Clicking a post shows detailed info.  
 4. **Upvote/Downvote**: Basic interactive feature for voting.  
 5. **Responsive UI**: Clean design for desktop and mobile devices.
+
+---
+
+## Screenshots
+
+Here are some application highlights in both **Light** and **Dark** modes.
+
+## Screenshots
+
+| Light Mode                           | Dark Mode                            |
+| ------------------------------------ | ------------------------------------ |
+| **Home Page**<br>![Home Light](./screenshots/light_home.png) | **Home Page**<br>![Home Dark](./screenshots/dark_home.png) |
+| **Create New Post**<br>![Create Light](./screenshots/light_create.png) | **Create New Post**<br>![Create Dark](./screenshots/dark_create.png) |
+| **Edit Page**<br>![Edit Light](./screenshots/light_edit.png) | **Edit Page**<br>![Edit Dark](./screenshots/dark_edit.png) |
+| **Show Page**<br>![Show Light](./screenshots/light_show.png) | **Show Page**<br>![Show Dark](./screenshots/dark_show.png) |
+
+
+
 
 ---
 
@@ -62,7 +80,7 @@ This **Quora Clone** demonstrates how to build a simple question-and-answer styl
    ```bash
    npm start
    ```
-   By default, the app should run on `http://localhost:8080` (or a port specified in your environment).
+   The app should default on `http://localhost:8080` (or a port specified in your environment).
 
 ---
 
