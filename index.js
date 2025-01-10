@@ -3,9 +3,14 @@
 const express = require("express");
 const app = express();
 const port = 8080;
+const fs = require("fs"); //THIS LINE IS CRUEIL AS IT WILL NOT ALLOW WORKING FURTHER
 const path = require("path"); //THIS LINE IS CRUEIL AS IT WILL NOT ALLOW WORKING FURTHER
 const { v4: uuidv4 } = require("uuid"); //THIS LINE IS IMP FOR USING UUID IN OUR CODE
 const methodOverride = require("method-override");
+
+// Read the JSON file and parse it into a JavaScript object
+const postsPath = path.join(__dirname, "data.json");
+let posts = JSON.parse(fs.readFileSync(postsPath, "utf8"));
 
 // Using Middleware for Encoding Json Data
 app.use(express.urlencoded({ extended: true }));
@@ -23,37 +28,37 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Below is our database array with username and content so that later we can use this to update and delete the post
-let posts = [
-  {
-    id: uuidv4(),
-    username: "Jay",
-    content: "This is my first post on Quora",
-    upvotes: 0,
-    downvotes: 0,
-  },
-  {
-    id: uuidv4(),
-    username: "Aman",
-    content: "This is my second post on Quora",
-    upvotes: 0,
-    downvotes: 0,
-  },
-  {
-    id: uuidv4(),
-    username: "Shardha",
-    content: "This is my third post on Quora",
-  },
-  {
-    id: uuidv4(),
-    username: "Adam",
-    content: "This is my fourth post on Quora",
-  },
-  {
-    id: uuidv4(),
-    username: "Eve",
-    content: "This is my fifth post on Quora",
-  },
-];
+// let posts = [
+//   {
+//     id: uuidv4(),
+//     username: "Jay",
+//     content: "This is my first post on Quora",
+//     upvotes: 0,
+//     downvotes: 0,
+//   },
+//   {
+//     id: uuidv4(),
+//     username: "Aman",
+//     content: "This is my second post on Quora",
+//     upvotes: 0,
+//     downvotes: 0,
+//   },
+//   {
+//     id: uuidv4(),
+//     username: "Shardha",
+//     content: "This is my third post on Quora",
+//   },
+//   {
+//     id: uuidv4(),
+//     username: "Adam",
+//     content: "This is my fourth post on Quora",
+//   },
+//   {
+//     id: uuidv4(),
+//     username: "Eve",
+//     content: "This is my fifth post on Quora",
+//   },
+// ];
 
 // Checking whether our server is working properly, with GET request
 
@@ -83,6 +88,9 @@ app.post("/posts", (req, res) => {
     content,
   });
   // After adding new post, we are redirecting the user to our main page
+  res.redirect("/posts");
+  // Save to JSON file
+  fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   res.redirect("/posts");
 });
 
@@ -121,6 +129,9 @@ app.get("/posts/:id/edit", (req, res) => {
 app.delete("/posts/:id", (req, res) => {
   let { id } = req.params;
   posts = posts.filter((p) => id !== p.id);
+  res.redirect("/posts");
+  // Save to JSON file
+  fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   res.redirect("/posts");
 });
 
