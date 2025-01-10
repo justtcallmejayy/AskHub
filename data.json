@@ -1,1 +1,72 @@
-//This is the json data, that will be used later for fetching data for later....
+[
+    {
+        "id": "post_1",
+        "username": "user_3",
+        "content": "coding project development knowledge interaction sharing community platform application learning posts opinions growth design discussions resources innovation future experience exploration clone quora",
+        "upvotes": 42,
+        "downvotes": 15
+    },
+    {
+        "id": "post_2",
+        "username": "user_7",
+        "content": "technology design coding future growth exploration community learning clone interaction knowledge sharing discussions application ideas opinions posts experience innovation project platform development quora",
+        "upvotes": 64,
+        "downvotes": 23
+    },
+    {
+        "id": "post_3",
+        "username": "user_5",
+        "content": "quora innovation development opinions future project exploration interaction clone posts knowledge community growth sharing design discussions coding application resources ideas experience platform technology",
+        "upvotes": 87,
+        "downvotes": 9
+    },
+    {
+        "id": "post_4",
+        "username": "user_1",
+        "content": "sharing platform technology design development project exploration future opinions resources clone coding application knowledge posts experience innovation community growth discussions ideas interaction learning",
+        "upvotes": 19,
+        "downvotes": 11
+    },
+    {
+        "id": "post_5",
+        "username": "user_2",
+        "content": "application project platform design community clone knowledge innovation coding interaction technology sharing posts discussions experience ideas opinions growth future development exploration resources quora",
+        "upvotes": 53,
+        "downvotes": 6
+    },
+    {
+        "id": "post_6",
+        "username": "user_9",
+        "content": "growth knowledge project ideas platform future development sharing discussions opinions clone community interaction technology innovation resources application posts learning design exploration quora coding",
+        "upvotes": 78,
+        "downvotes": 17
+    },
+    {
+        "id": "post_7",
+        "username": "user_6",
+        "content": "opinions learning sharing growth posts clone quora technology application innovation community exploration ideas discussions interaction resources platform design coding development project experience future",
+        "upvotes": 31,
+        "downvotes": 19
+    },
+    {
+        "id": "post_8",
+        "username": "user_10",
+        "content": "innovation community design coding platform project knowledge sharing opinions discussions growth technology clone interaction resources application development quora exploration experience ideas learning posts",
+        "upvotes": 45,
+        "downvotes": 8
+    },
+    {
+        "id": "post_9",
+        "username": "user_4",
+        "content": "ideas learning coding design sharing platform clone technology interaction project community innovation development growth knowledge posts opinions experience future resources discussions quora application",
+        "upvotes": 28,
+        "downvotes": 12
+    },
+    {
+        "id": "post_10",
+        "username": "user_8",
+        "content": "quora community growth ideas technology application innovation design project future sharing opinions clone interaction platform development coding posts experience discussions knowledge exploration resources",
+        "upvotes": 91,
+        "downvotes": 3
+    }
+]
