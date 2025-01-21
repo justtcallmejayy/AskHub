@@ -62,7 +62,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Checking whether our server is working properly, with GET request
 
-app.get("/posts", (req, res) => {
+app.get("/", (req, res) => {
   //res.send("Hi Jay, Your server is running fine with all GET Reqs and updated arrays.");
   res.render("index.ejs", { posts });
 });
