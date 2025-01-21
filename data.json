@@ -56,13 +56,6 @@
         "downvotes": 12
     },
     {
-        "id": "post_10",
-        "username": "user_8",
-        "content": "quora community growth ideas technology application innovation design project future sharing opinions clone interaction platform development coding posts experience discussions knowledge exploration resources",
-        "upvotes": 91,
-        "downvotes": 3
-    },
-    {
         "id": "post_2",
         "username": "user_7",
         "content": "platform design coding innovation sharing community project opinions discussions ideas future interaction learning resources development posts experience clone knowledge application growth exploration technology quora",
@@ -117,13 +110,6 @@
         "content": "resources growth platform clone application knowledge development project innovation discussions ideas community interaction sharing posts learning opinions coding experience design exploration future technology quora",
         "upvotes": 53,
         "downvotes": 12
-    },
-    {
-        "id": "post_10",
-        "username": "user_10",
-        "content": "platform discussions coding sharing posts knowledge growth clone interaction technology innovation learning design community project application experience ideas opinions future exploration development quora resources",
-        "upvotes": 36,
-        "downvotes": 10
     },
     {
         "id": "post_11",
@@ -199,5 +185,10 @@
         "id": "68096f65-1c6f-4f24-907e-684091300d4c",
         "username": "Jay",
         "content": "Hi this is a trial"
+    },
+    {
+        "id": "688050ee-9c5b-436a-9452-0e8424f074a0",
+        "username": "Dhruv",
+        "content": "Hello from Dhruv."
     }
 ]
