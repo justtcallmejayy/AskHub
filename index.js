@@ -1,147 +1,119 @@
-// Hi, I am Jay the author of this code. I am currently building the clone for QUORA using my knowledge of programming in JS and NEW JS programming Languages..
+// Hi, I am Jay the author of this code. I am currently building the clone
+// for QUORA using my knowledge of programming in JS and NEW JS programming Languages..
 
 const express = require("express");
 const app = express();
 const port = 8080;
-const fs = require("fs"); //THIS LINE IS CRUEIL AS IT WILL NOT ALLOW WORKING FURTHER
-const path = require("path"); //THIS LINE IS CRUEIL AS IT WILL NOT ALLOW WORKING FURTHER
-const { v4: uuidv4 } = require("uuid"); //THIS LINE IS IMP FOR USING UUID IN OUR CODE
+const fs = require("fs"); // For reading and writing the data file
+const path = require("path"); // For handling file paths
+const { v4: uuidv4 } = require("uuid"); // For generating unique IDs
 const methodOverride = require("method-override");
 
 // Read the JSON file and parse it into a JavaScript object
 const postsPath = path.join(__dirname, "data.json");
 let posts = JSON.parse(fs.readFileSync(postsPath, "utf8"));
 
-// Using Middleware for Encoding Json Data
+// Using Middleware for Encoding JSON Data
 app.use(express.urlencoded({ extended: true }));
 
-// Using _method for app.use to set the method for overriding. THIS MEANS TO OVERRIDE THE POST HAVING _DELETE
+// Using _method for overriding methods like DELETE/PATCH via query string
 app.use(methodOverride("_method"));
 
-// I am setting a viewEngine to EJS
+// Setting the view engine to EJS
 app.set("view engine", "ejs");
 
-// I am setting a view directory for EJS
+// Setting the 'views' directory for EJS
 app.set("views", path.join(__dirname, "views"));
 
-// Now i am setting a static file dir for express
+// Serving static files from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
 
-// Below is our database array with username and content so that later we can use this to update and delete the post
-// let posts = [
-//   {
-//     id: uuidv4(),
-//     username: "Jay",
-//     content: "This is my first post on Quora",
-//     upvotes: 0,
-//     downvotes: 0,
-//   },
-//   {
-//     id: uuidv4(),
-//     username: "Aman",
-//     content: "This is my second post on Quora",
-//     upvotes: 0,
-//     downvotes: 0,
-//   },
-//   {
-//     id: uuidv4(),
-//     username: "Shardha",
-//     content: "This is my third post on Quora",
-//   },
-//   {
-//     id: uuidv4(),
-//     username: "Adam",
-//     content: "This is my fourth post on Quora",
-//   },
-//   {
-//     id: uuidv4(),
-//     username: "Eve",
-//     content: "This is my fifth post on Quora",
-//   },
-// ];
+/* 
+------------------------------------------------
+  ADDING A ROUTE FOR ROOT URL
+  So when user goes to "/", it redirects to "/posts"
+------------------------------------------------
+*/
+app.get("/", (req, res) => {
+  res.redirect("/posts");
+});
 
 // Checking whether our server is working properly, with GET request
-
-app.get("/", (req, res) => {
-  //res.send("Hi Jay, Your server is running fine with all GET Reqs and updated arrays.");
+app.get("/posts", (req, res) => {
+  // res.send("Hi Jay, Your server is running fine with all GET Reqs and updated arrays.");
   res.render("index.ejs", { posts });
 });
 
-// Creating a POST request for creating new post using posts/new
-
+// Creating a GET request to show form for a new post
 app.get("/posts/new", (req, res) => {
   res.render("new.ejs");
 });
 
-// This will be the code for a POST request create by ournew postpage , it will take res and return the request body
-
+// Handling the POST request to create a new post
 app.post("/posts", (req, res) => {
-  //Now i will also add the ID, and passing it along with the username & content
+  const { username, content } = req.body;
+  const id = uuidv4();
 
-  // res.send("POST request working in Progress");
-  let { username, content } = req.body;
-  let id = uuidv4();
-  // Now we are adding a new post to our posts array
+  // Add a new post to our array
   posts.push({
-    id, //posts.length + 1, //this is a basic way of creating id with incement
+    id,
     username,
     content,
+    upvotes: 0,
+    downvotes: 0,
   });
-  // After adding new post, we are redirecting the user to our main page
-  res.redirect("/posts");
-  // Save to JSON file
+
+  // Save updated posts array to JSON file (locally)
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
+
+  // Redirect to main page
   res.redirect("/posts");
 });
 
-// Now adding a new route
+// Route to show a specific post
 app.get("/posts/:id", (req, res) => {
-  let { id } = req.params;
-  // res.send("Request is working");
-  // Here we are finding the post in our posts array using find method
-  let post = posts.find((p) => id === p.id);
+  const { id } = req.params;
+  const post = posts.find((p) => p.id === id);
   res.render("show.ejs", { post });
-  // res.send("Request is working");
 });
 
-// Adding PATCH function to the add a specific path that will be used to edit teh post further.
-app.patch("/posts/:id", (req, res) => {
-  let { id } = req.params;
-  let newContent = req.body.content;
-  let post = posts.find((p) => id === p.id); //by this line of code i can know what id i need or i amworking on, now i will simply just add / append the new content ie the updated content to my content
-  post.content = newContent;
-  console.log(post);
-  console.log(newContent);
-  console.log(id);
-
-  // After adding new post, we are redirecting the user to our main page
-  res.redirect("/posts");
-});
-
-// Creatinga new route for EDIT using my DELETE
+// Route to show edit form for a specific post
 app.get("/posts/:id/edit", (req, res) => {
-  // res.send("Request is working");
-  let { id } = req.params;
-  let post = posts.find((p) => id === p.id);
+  const { id } = req.params;
+  const post = posts.find((p) => p.id === id);
   res.render("edit.ejs", { post });
 });
 
-app.delete("/posts/:id", (req, res) => {
-  let { id } = req.params;
-  posts = posts.filter((p) => id !== p.id);
+// Handling PATCH to update the content of a specific post
+app.patch("/posts/:id", (req, res) => {
+  const { id } = req.params;
+  const newContent = req.body.content;
+  const post = posts.find((p) => p.id === id);
+
+  if (post) {
+    post.content = newContent;
+    // Save to file
+    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
+  }
   res.redirect("/posts");
-  // Save to JSON file
+});
+
+// Handling DELETE for a specific post
+app.delete("/posts/:id", (req, res) => {
+  const { id } = req.params;
+  posts = posts.filter((p) => p.id !== id);
+  // Save updated array
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   res.redirect("/posts");
 });
 
-// Adding a new route for Upvotes
 // Route for upvoting a post
 app.post("/posts/:id/upvote", (req, res) => {
   const { id } = req.params;
   const post = posts.find((p) => p.id === id);
   if (post) {
-    post.upvotes += 1;
+    post.upvotes = (post.upvotes || 0) + 1;
+    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   }
   res.redirect("/posts");
 });
@@ -151,11 +123,13 @@ app.post("/posts/:id/downvote", (req, res) => {
   const { id } = req.params;
   const post = posts.find((p) => p.id === id);
   if (post) {
-    post.downvotes += 1;
+    post.downvotes = (post.downvotes || 0) + 1;
+    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   }
   res.redirect("/posts");
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
