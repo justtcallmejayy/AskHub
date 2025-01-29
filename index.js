@@ -2,6 +2,9 @@
 // for QUORA using my knowledge of programming in JS and NEW JS programming Languages..
 
 const express = require("express");
+const cors = require("cors");
+app.use(cors());
+app.use(express.json());
 const app = express();
 const PORT = process.env.PORT || 3000; // Use Render’s port
 const fs = require("fs"); // For reading and writing the data file
