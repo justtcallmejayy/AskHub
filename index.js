@@ -3,10 +3,11 @@
 
 const express = require("express");
 const cors = require("cors");
-app.use(cors());
-app.use(express.json());
+
 const app = express();
 const PORT = process.env.PORT || 3000; // Use Render’s port
+app.use(cors());
+app.use(express.json());
 const fs = require("fs"); // For reading and writing the data file
 const path = require("path"); // For handling file paths
 const { v4: uuidv4 } = require("uuid"); // For generating unique IDs
@@ -38,8 +39,9 @@ app.use(express.static(path.join(__dirname, "public")));
 ------------------------------------------------
 */
 app.get("/", (req, res) => {
-  res.redirect("/posts");
+  res.json({ message: "Quora Clone API is running!" });
 });
+
 
 // Checking whether our server is working properly, with GET request
 app.get("/posts", (req, res) => {
