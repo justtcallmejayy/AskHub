@@ -3,7 +3,7 @@
 
 const express = require("express");
 const app = express();
-const port = 8080;
+const PORT = process.env.PORT || 3000; // Use Render’s port
 const fs = require("fs"); // For reading and writing the data file
 const path = require("path"); // For handling file paths
 const { v4: uuidv4 } = require("uuid"); // For generating unique IDs
