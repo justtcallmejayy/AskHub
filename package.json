@@ -1,7 +1,7 @@
 {
   "name": "askhub",
   "version": "1.0.0",
-  "description": "A Quora Clone built with Express",
+  "description": "AskHub built with Express",
   "author": "Jay Choksi",
   "license": "ISC",
   "main": "api/index.js",
