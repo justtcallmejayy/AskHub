@@ -1,132 +1,100 @@
-// Hi, I am Jay the author of this code. I am currently building the clone
-// for AskHub using my knowledge of programming in JS and NEW JS programming Languages..
+// Hi, I am Jay the author of this code. I am currently building AskHub with SQLite!
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid");
+const db = require("./database");
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use Render’s port
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(express.json());
-const fs = require("fs"); // For reading and writing the data file
-const path = require("path"); // For handling file paths
-const { v4: uuidv4 } = require("uuid"); // For generating unique IDs
-const methodOverride = require("method-override");
-
-// Read the JSON file and parse it into a JavaScript object
-const postsPath = path.join(__dirname, "data.json");
-let posts = JSON.parse(fs.readFileSync(postsPath, "utf8"));
-
-// Using Middleware for Encoding JSON Data
 app.use(express.urlencoded({ extended: true }));
-
-// Using _method for overriding methods like DELETE/PATCH via query string
 app.use(methodOverride("_method"));
 
-// Setting the view engine to EJS
 app.set("view engine", "ejs");
-
-// Setting the 'views' directory for EJS
 app.set("views", path.join(__dirname, "views"));
-
-// Serving static files from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
 
-/* 
-------------------------------------------------
-  ADDING A ROUTE FOR ROOT URL
-  So when user goes to "/", it redirects to "/posts"
-------------------------------------------------
-*/
+// Home API check
 app.get("/", (req, res) => {
   res.json({ message: "AskHub API is running!" });
 });
 
-// Checking whether our server is working properly, with GET request
+// Show all posts
 app.get("/posts", (req, res) => {
-  res.render("index.ejs", { posts });
+  db.all("SELECT * FROM posts", (err, posts) => {
+    if (err) return res.status(500).send("Database error");
+    res.render("index.ejs", { posts });
+  });
 });
 
-// Creating a GET request to show form for a new post
+// Show form to create new post
 app.get("/posts/new", (req, res) => {
-  res.render("./new.ejs");
+  res.render("new.ejs");
 });
 
-// Handling the POST request to create a new post
+// Create a new post
 app.post("/posts", (req, res) => {
   const { username, content } = req.body;
-  const id = uuidv4();
-
-  // Add a new post to our array
-  posts.push({
-    id,
-    username,
-    content,
-    upvotes: 0,
-    downvotes: 0,
-  });
-
-  // Save updated posts array to JSON file (locally)
-  fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
-
-  // Redirect to main page
-  res.redirect("/posts");
+  const id = require("uuid").v4();
+  db.run(
+    "INSERT INTO posts (id, username, content, upvotes, downvotes) VALUES (?, ?, ?, 0, 0)",
+    [id, username, content],
+    (err) => {
+      if (err) return res.status(500).send("Insert error");
+      res.redirect("/posts");
+    }
+  );
 });
 
-// Route to show a specific post
+// View post in detail
 app.get("/posts/:id", (req, res) => {
   const { id } = req.params;
-  const post = posts.find((p) => p.id === id);
-  res.render("show.ejs", { post });
+  db.get("SELECT * FROM posts WHERE id = ?", [id], (err, post) => {
+    if (err) return res.status(500).send("Error fetching post");
+    res.render("show.ejs", { post });
+  });
 });
 
-// Route to show edit form for a specific post
+// Show edit form
 app.get("/posts/:id/edit", (req, res) => {
   const { id } = req.params;
-  const post = posts.find((p) => p.id === id);
-  res.render("edit.ejs", { post });
+  db.get("SELECT * FROM posts WHERE id = ?", [id], (err, post) => {
+    if (err) return res.status(500).send("Error fetching post for editing");
+    res.render("edit.ejs", { post });
+  });
 });
 
-// Handling PATCH to update the content of a specific post
+// Update post
 app.patch("/posts/:id", (req, res) => {
   const { id } = req.params;
-  const newContent = req.body.content;
-  const post = posts.find((p) => p.id === id);
-
-  if (post) {
-    post.content = newContent;
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
-  }
+  const { content } = req.body;
+  db.prepare("UPDATE posts SET content = ? WHERE id = ?").run(content, id);
   res.redirect("/posts");
 });
 
-// Handling DELETE for a specific post
+// Delete post
 app.delete("/posts/:id", (req, res) => {
   const { id } = req.params;
-  posts = posts.filter((p) => p.id !== id);
-  fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
+  db.prepare("DELETE FROM posts WHERE id = ?").run(id);
   res.redirect("/posts");
 });
 
-// Route for upvoting a post
+// Upvote post
 app.post("/posts/:id/upvote", (req, res) => {
   const { id } = req.params;
-  const post = posts.find((p) => p.id === id);
-  if (post) {
-    post.upvotes = (post.upvotes || 0) + 1;
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
-  }
+  db.prepare("UPDATE posts SET upvotes = upvotes + 1 WHERE id = ?").run(id);
   res.redirect("/posts");
 });
 
-// Route for downvoting a post
+// Downvote post
 app.post("/posts/:id/downvote", (req, res) => {
   const { id } = req.params;
-  const post = posts.find((p) => p.id === id);
-  if (post) {
-    post.downvotes = (post.downvotes || 0) + 1;
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
-  }
+  db.prepare("UPDATE posts SET downvotes = downvotes + 1 WHERE id = ?").run(id);
   res.redirect("/posts");
 });
 

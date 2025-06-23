@@ -43,6 +43,14 @@
       <h3 class="username">Username: @<%= post.username %></h3>
       <p class="content">Content: <%= post.content %></p>
     </div>
+    <div class="votes">
+      <form action="/posts/<%= post.id %>/upvote" method="POST">
+        <button>👍 <%= post.upvotes %></button>
+      </form>
+      <form action="/posts/<%= post.id %>/downvote" method="POST">
+        <button>👎 <%= post.downvotes %></button>
+      </form>
+    </div>
     <% } %>
 
     <footer>

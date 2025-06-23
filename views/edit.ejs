@@ -45,6 +45,9 @@
       <!-- Hidden input to emulate PUT/PATCH method -->
       <input type="hidden" name="_method" value="PUT" />
 
+      <% if (!post) { %>
+      <h2 style="color: red">Post not found</h2>
+      <% } else { %>
       <textarea name="content" ...><%= post.content %></textarea>
       <input
         type="text"
@@ -55,6 +58,8 @@
         value="<%= post.username %>"
         required
       />
+      <div id="loader" style="display: none">Loading...</div>
+      <% } %>
 
       <div class="form-actions">
         <button type="submit">Update Post</button>
