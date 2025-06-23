@@ -1,4 +1,4 @@
-# Welcome to My Quora Clone
+# Welcome to AskHub
 
 ![Project views](https://komarev.com/ghpvc/?username=justtcallmejayy&label=Project%20views&color=0e75b6&style=flat)
 
