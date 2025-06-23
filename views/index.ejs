@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quora-Clone</title>
+    <title>AskHub</title>
+
     <link rel="stylesheet" href="/style.css" />
     <!-- Global Styles -->
 
@@ -12,12 +13,15 @@
       rel="stylesheet"
     />
     <!-- Link for icons -->
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/0/09/Quora_icon.svg" type="img/svg"> 
-
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/0/09/Quora_icon.svg"
+      type="img/svg"
+    />
   </head>
   <body>
     <div class="container">
-      <h1>Quora Posts</h1>
+      <h1>AskHub Posts</h1>
       <button id="theme-switch">
         <!-- Light mode icon -->
         <svg
@@ -48,7 +52,6 @@
       <div class="post">
         <h2 class="username">@<%= post.username %></h2>
         <p class="content"><%= post.content %></p>
-        <!-- Code for adding id after the content of the post so that anyone can view this post in detail. -->
         <a
           href="http://localhost:8080/posts/<%= post.id %>"
           class="view-details"
@@ -60,34 +63,26 @@
           >Edit</a
         >
         <div class="votes">
-          <!-- Upvote Form -->
           <form action="/posts/<%= post.id %>/upvote" method="POST">
             <button type="submit">👍 <%= post.upvotes %></button>
           </form>
-          <!-- Downvote Form -->
           <form action="/posts/<%= post.id %>/downvote" method="POST">
             <button type="submit">👎 <%= post.downvotes %></button>
           </form>
         </div>
-
-        <!-- Delete Form -->
         <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
           <button class="delete-btn" aria-label="Delete Post">Delete</button>
         </form>
-
         <p class="separator">----------------------------------------------</p>
       </div>
       <% } %>
 
-      <!-- Create New Post Button -->
       <div class="new-post-link">
         <a href="http://localhost:8080/posts/new" class="button"
           >Create New Post</a
         >
       </div>
     </div>
-
-    <!-- REMEMBER TO ADD A BUTTON FOR BACK TO TOP -->
 
     <footer>
       <div class="footer-container">
@@ -129,7 +124,7 @@
             />
           </a>
         </div>
-        <p class="footer-text">© 2024 Quora Clone. All rights reserved.</p>
+        <p class="footer-text">© 2024 AskHub. All rights reserved.</p>
       </div>
     </footer>
 

@@ -1,5 +1,5 @@
 // Hi, I am Jay the author of this code. I am currently building the clone
-// for QUORA using my knowledge of programming in JS and NEW JS programming Languages..
+// for AskHub using my knowledge of programming in JS and NEW JS programming Languages..
 
 const express = require("express");
 const cors = require("cors");
@@ -39,13 +39,11 @@ app.use(express.static(path.join(__dirname, "public")));
 ------------------------------------------------
 */
 app.get("/", (req, res) => {
-  res.json({ message: "Quora Clone API is running!" });
+  res.json({ message: "AskHub API is running!" });
 });
-
 
 // Checking whether our server is working properly, with GET request
 app.get("/posts", (req, res) => {
-  // res.send("Hi Jay, Your server is running fine with all GET Reqs and updated arrays.");
   res.render("index.ejs", { posts });
 });
 
@@ -97,7 +95,6 @@ app.patch("/posts/:id", (req, res) => {
 
   if (post) {
     post.content = newContent;
-    // Save to file
     fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   }
   res.redirect("/posts");
@@ -107,7 +104,6 @@ app.patch("/posts/:id", (req, res) => {
 app.delete("/posts/:id", (req, res) => {
   const { id } = req.params;
   posts = posts.filter((p) => p.id !== id);
-  // Save updated array
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4));
   res.redirect("/posts");
 });
@@ -135,6 +131,6 @@ app.post("/posts/:id/downvote", (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`AskHub server is running on port ${PORT}`);
 });
