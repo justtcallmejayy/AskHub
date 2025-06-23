@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Home API check
 app.get("/", (req, res) => {
-  res.json({ message: "AskHub API is running!" });
+  res.redirect("/posts");
 });
 
 // Show all posts
