@@ -45,18 +45,20 @@
       <!-- Hidden input to emulate PUT/PATCH method -->
       <input type="hidden" name="_method" value="PUT" />
 
-      <textarea
-        name="content"
-        id="content"
-        placeholder="Edit your post here"
+      <textarea name="content" ...><%= post.content %></textarea>
+      <input
+        type="text"
+        name="username"
+        minlength="3"
+        maxlength="20"
+        pattern="[a-zA-Z0-9_]+"
+        value="<%= post.username %>"
         required
-      >
-<%= post.content %></textarea
-      >
+      />
 
       <div class="form-actions">
         <button type="submit">Update Post</button>
-        <a href="http://localhost:8080/posts" class="cancel-btn">Cancel</a>
+        <a href="/posts" class="cancel-btn">Cancel</a>
       </div>
     </form>
 

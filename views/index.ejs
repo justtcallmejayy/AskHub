@@ -52,16 +52,9 @@
       <div class="post">
         <h2 class="username">@<%= post.username %></h2>
         <p class="content"><%= post.content %></p>
-        <a
-          href="http://localhost:8080/posts/<%= post.id %>"
-          class="view-details"
-          >View in detail</a
-        >
-        <a
-          href="http://localhost:8080/posts/<%= post.id %>/edit"
-          class="view-details"
-          >Edit</a
-        >
+        <a href="/posts/<%= post.id %>" class="view-details">View in detail</a>
+        <a href="/posts/<%= post.id %>/edit" class="view-details">Edit</a>
+
         <div class="votes">
           <form action="/posts/<%= post.id %>/upvote" method="POST">
             <button type="submit">👍 <%= post.upvotes %></button>
@@ -78,9 +71,7 @@
       <% } %>
 
       <div class="new-post-link">
-        <a href="http://localhost:8080/posts/new" class="button"
-          >Create New Post</a
-        >
+        <a href="/posts/new" class="button">Create New Post</a>
       </div>
     </div>
 

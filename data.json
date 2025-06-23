@@ -1,19 +1,5 @@
 [
     {
-        "id": "post_3",
-        "username": "user_5",
-        "content": "quora innovation development opinions future project exploration interaction clone posts knowledge community growth sharing design discussions coding application resources ideas experience platform technology",
-        "upvotes": 88,
-        "downvotes": 10
-    },
-    {
-        "id": "post_4",
-        "username": "user_1",
-        "content": "sharing platform technology design development project exploration future opinions resources clone coding application knowledge posts experience innovation community growth discussions ideas interaction learning",
-        "upvotes": 19,
-        "downvotes": 11
-    },
-    {
         "id": "post_5",
         "username": "user_2",
         "content": "application project platform design community clone knowledge innovation coding interaction technology sharing posts discussions experience ideas opinions growth future development exploration resources quora",
@@ -47,20 +33,6 @@
         "content": "ideas learning coding design sharing platform clone technology interaction project community innovation development growth knowledge posts opinions experience future resources discussions quora application",
         "upvotes": 28,
         "downvotes": 12
-    },
-    {
-        "id": "post_3",
-        "username": "user_9",
-        "content": "clone technology platform project growth discussions ideas innovation posts coding interaction resources knowledge development application future experience opinions sharing learning exploration quora community design",
-        "upvotes": 45,
-        "downvotes": 9
-    },
-    {
-        "id": "post_4",
-        "username": "user_5",
-        "content": "community growth discussions innovation application platform development coding ideas clone project future technology experience posts learning interaction knowledge sharing resources exploration design opinions quora",
-        "upvotes": 80,
-        "downvotes": 11
     },
     {
         "id": "post_5",

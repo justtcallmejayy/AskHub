@@ -1,1 +1,23 @@
-{"name":"askhub","version":"1.0.0","description":"A Quora Clone built with Express","author":"Jay Choksi","license":"ISC","main":"api/index.js","scripts":{"dev":"nodemon api/index.js","start":"node api/index.js"},"dependencies":{"cors":"^2.8.5","ejs":"^3.1.10","express":"^4.21.1","method-override":"^3.0.0","uuid":"^11.0.5"},"devDependencies":{"nodemon":"^3.1.10"}}
+{
+  "name": "askhub",
+  "version": "1.0.0",
+  "description": "A Quora Clone built with Express",
+  "author": "Jay Choksi",
+  "license": "ISC",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "method-override": "^3.0.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

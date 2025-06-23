@@ -49,7 +49,7 @@ app.get("/posts", (req, res) => {
 
 // Creating a GET request to show form for a new post
 app.get("/posts/new", (req, res) => {
-  res.render("new.ejs");
+  res.render("./new.ejs");
 });
 
 // Handling the POST request to create a new post

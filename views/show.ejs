@@ -35,10 +35,15 @@
         />
       </svg>
     </button>
+
+    <% if (!post) { %>
+    <h2 style="color: red; text-align: center">Post not found</h2>
+    <% } else { %>
     <div class="post">
       <h3 class="username">Username: @<%= post.username %></h3>
       <p class="content">Content: <%= post.content %></p>
     </div>
+    <% } %>
 
     <footer>
       <div class="footer-container">
