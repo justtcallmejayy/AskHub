@@ -98,6 +98,22 @@ app.post("/posts/:id/downvote", (req, res) => {
   res.redirect("/posts");
 });
 
+app.get("/about", (req, res) => {
+  res.render("static/about", { title: "About AskHub" });
+});
+
+app.get("/help", (req, res) => {
+  res.render("static/help", { title: "Help | AskHub" });
+});
+
+app.get("/privacy", (req, res) => {
+  res.render("static/privacy", { title: "Privacy Policy | AskHub" });
+});
+
+app.get("/terms", (req, res) => {
+  res.render("static/terms", { title: "Terms & Conditions | AskHub" });
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`AskHub server is running on port ${PORT}`);

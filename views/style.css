@@ -495,3 +495,12 @@ footer {
 .authorship a:hover {
   text-decoration: underline;
 }
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: var(--accent);
+}

@@ -10,12 +10,12 @@
     "dev": "nodemon index.js"
   },
   "engines": {
-  "node": "20.x"
-},
+    "node": "20.x"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "method-override": "^3.0.0",
     "sqlite3": "^5.1.7",
     "uuid": "^11.0.5"
