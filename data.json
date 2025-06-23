@@ -1,17 +1,10 @@
 [
     {
-        "id": "post_2",
-        "username": "user_7",
-        "content": "technology design coding future growth exploration community learning clone interaction knowledge sharing discussions application ideas opinions posts experience innovation project platform development quora",
-        "upvotes": 64,
-        "downvotes": 23
-    },
-    {
         "id": "post_3",
         "username": "user_5",
         "content": "quora innovation development opinions future project exploration interaction clone posts knowledge community growth sharing design discussions coding application resources ideas experience platform technology",
-        "upvotes": 87,
-        "downvotes": 9
+        "upvotes": 88,
+        "downvotes": 10
     },
     {
         "id": "post_4",
@@ -54,13 +47,6 @@
         "content": "ideas learning coding design sharing platform clone technology interaction project community innovation development growth knowledge posts opinions experience future resources discussions quora application",
         "upvotes": 28,
         "downvotes": 12
-    },
-    {
-        "id": "post_2",
-        "username": "user_7",
-        "content": "platform design coding innovation sharing community project opinions discussions ideas future interaction learning resources development posts experience clone knowledge application growth exploration technology quora",
-        "upvotes": 62,
-        "downvotes": 18
     },
     {
         "id": "post_3",
