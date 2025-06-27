@@ -70,7 +70,7 @@ Here are some application highlights in both **Light** and **Dark** modes.
    ```
 2. **Navigate into the folder**:
    ```bash
-   cd quora-clone
+   cd AskHub
    ```
 3. **Install dependencies**:
    ```bash
@@ -80,7 +80,7 @@ Here are some application highlights in both **Light** and **Dark** modes.
    ```bash
    npm start
    ```
-   The app should default on `http://localhost:8080` (or a port specified in your environment).
+   The app should default on `http://localhost:3000` (or a port specified in your environment).
 
 ---
 
@@ -141,4 +141,4 @@ Feel free to explore, contribute, and share feedback!
 
 ---
 
-**© 2024 Quora Clone. All rights reserved.**
+**© 2024 AskHub. All rights reserved.**
