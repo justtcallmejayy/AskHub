@@ -66,7 +66,7 @@ Here are some application highlights in both **Light** and **Dark** modes.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/justtcallmejayy/quora-clone.git
+   git clone https://github.com/justtcallmejayy/AskHub.git
    ```
 2. **Navigate into the folder**:
    ```bash
